@@ -1,0 +1,40 @@
+.footer
+	padding: 2rem 0
+	background: $black
+	&__box
+		display: flex
+		align-items: center
+		justify-content: space-between
+	&__rights
+		font-size: 0.75rem
+		color: #FFF
+	&__links
+		a 
+			font-size: 0.75rem
+			text-transform: uppercase
+			color: #1f7f91
+			&:hover
+				color: #fff
+				text-decoration: underline
+		span
+			color: #1f7f91
+	&__dev
+		display: flex
+		align-items: center
+		font-size: 0.75rem
+		color: #fff
+		text-align: right
+		&:hover
+			color: #fff
+		img
+			width: 6.875rem
+			margin: 0 0 0 1rem
+
+@media screen and ( max-width: 992px )
+	.footer
+		&__box
+			flex-direction: column
+		&__rights
+			margin: 0 0 1rem 0
+		&__links
+			margin: 0 0 1rem 0

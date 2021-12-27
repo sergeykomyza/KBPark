@@ -1,0 +1,36 @@
+.home
+	position: relative
+	height: 67.6875rem
+	margin: 0 0 1.1rem 0
+	background: url('../img/Main-screen.jpg') center top / cover no-repeat
+	&__box
+		position: relative
+		z-index: 2
+		padding: 17.5rem 0 0 0
+	&__title
+		margin: 0 0 3rem 0
+		font-family: $light
+		font-size: 4.875rem
+	&__tagtitle
+		display: block
+		margin: 0 0 4.4rem 0
+		font-family: $bold
+		font-size: 1.5rem
+		color: $green
+	&__button
+
+@media screen and ( max-width: 992px )
+	.home
+		height: 50rem
+		margin: 0
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background: rgba(255,255,255,0.5)
+		&__box
+		&__title
+			font-size: 3.875rem

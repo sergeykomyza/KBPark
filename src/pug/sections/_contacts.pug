@@ -1,0 +1,46 @@
+section.contacts 
+	.container 
+		.row 
+			.col
+				.contacts__box
+					.contacts__map#map
+					.contacts__data 
+						img.contacts__logo(src="img/logo-footer.png", alt="logo-footer")
+						.contacts__row 
+							.contacts__title Ресепшн Здания «1»
+							.contacts__item 
+								img.contacts__icon(src="img/home-icon.png", alt="home-icon")
+								span.contacts__adress 141402, Московская обл., г. Химки,
+									br
+									| ул. Ленинградская, владение 39, стр. 5
+							.contacts__item 
+								img.contacts__icon(src="img/phone-icon-circle.png", alt="phone-icon-circle")
+								a.contacts__phone(href="tel:+74952283781") +7 (495) 228-37-81
+							.contacts__item 
+								img.contacts__icon(src="img/phone-icon-circle.png", alt="phone-icon-circle")
+								a.contacts__phone(href="tel:+74957452838") +7 (495) 745-28-38
+						.contacts__row 
+							.contacts__title Ресепшн Здания «2»
+							.contacts__item 
+								img.contacts__icon(src="img/home-icon.png", alt="home-icon")
+								span.contacts__adress 141402, Московская обл., г. Химки,
+									br
+									| ул. Ленинградская, владение 39, стр. 6
+							.contacts__item 
+								img.contacts__icon(src="img/phone-icon-circle.png", alt="phone-icon-circle")
+								a.contacts__phone(href="tel:+74952283782") +7 (495) 228-37-82
+					form.contacts__form.form(action="#")
+						.form__title 
+							h6 Забронировать 
+								br
+								| помещение 
+								br
+								|или задать вопрос
+						.form__fields 
+							input.form__input(type="text" placeholder="Ваше имя")
+							input.form__input(type="text" placeholder="Название компании")
+							input.form__input.phone(type="text" placeholder="Телефон")
+							input.form__input(type="text" placeholder="Email")
+							textarea.form__input(placeholder="Сообщение")
+							button.form__button.button 
+								span отправить
