@@ -91,17 +91,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // ================================================== animation
 window.addEventListener('load', function () {
     // home section
-    const titleWords = document.querySelectorAll('.home__title span')
-    let time = 1500
-    titleWords.forEach(item => {
-        this.setTimeout(function () {
-            item.style.cssText = `
-                opacity: 1;
-                top: 0
-            `
-        }, time)
-        time += 100
-    })
     setTimeout(function () {
         home.style.opacity = 1
     }, 1000)
@@ -115,7 +104,6 @@ window.addEventListener('load', () => {
         let prevRatio = 0.0;
         let observer = new IntersectionObserver((entries, observer) => {
             const animateElems = section.querySelectorAll('.animate__animated')
-            const animateElem = section.querySelector('.animate__animated')
             time = 0
             entries.forEach(entry => {
                 let curRatio = entry.intersectionRatio;
@@ -141,6 +129,7 @@ window.addEventListener('load', () => {
         }, { threshold: 0.2 });
         observer.observe(section);
     }
+    animation(home, 'animate__fadeInDown');
     animation(advantages, 'animate__fadeInLeft');
     animation(awards, 'animate__fadeInDown');
     animation(dignity, 'animate__flipInY')
