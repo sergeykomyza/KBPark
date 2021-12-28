@@ -52,22 +52,46 @@ section
 	display: none
 
 .button
+	position: relative
 	display: flex
 	justify-content: center
 	align-items: center
 	min-width: 20rem
 	height: 4.375rem
 	background: $green
+	overflow: hidden
 	span
+		position: relative
+		z-index: 1
 		margin: 0 1.5625rem 0 0
 		font-family: $bold
 		font-size: $px24
 		color: #FFF
 	img
+		position: relative
+		z-index: 1
 		width: 2.5rem
 		transition: all 0.3s
 	&:hover img
 		transform: translateX(1rem)
+	&::before
+		content: ''
+		position: absolute
+		z-index: 1
+		top: 0
+		bottom: 0
+		left: -1em
+		right: -1em
+		display: block
+		background: #132931
+		-webkit-transform: skewX(14deg) translateX(-100%)
+		transform: skewX(14deg) translateX(-100%)
+		-webkit-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1)
+		transition: all 1s cubic-bezier(0.19, 1, 0.22, 1)
+	&:hover::before
+		transform: skewX(14deg) translateX(0)
+
+    // background: #132931
 
 .title-box
 	display: flex

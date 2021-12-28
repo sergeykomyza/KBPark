@@ -1,19 +1,27 @@
 // ================================================== vars
 const header = document.querySelector('.header')
+const home = document.querySelector('.home')
+const advantages = document.querySelector('.advantages')
+const awards = document.querySelector('.awards')
+const dignity = document.querySelector('.dignity')
+const vacancy = document.querySelector('.vacancy__images')
+const floors = document.querySelector('.vacancy__areas')
+const contacts = document.querySelector('.contacts')
+const form = document.querySelector('.form')
 
 // ================================================== header
-window.addEventListener('scroll', function(){
+window.addEventListener('scroll', function () {
     const scrollSize = window.pageYOffset
     scrollSize > 1 ? header.classList.add('active') : header.classList.remove('active')
 })
 // ===================== выравниваем логотип по левому краю (чтобы на всех разрешениях он был на одинаковом расстоянии от левого края)
-function logoAlign(){
+function logoAlign() {
     const screenWidth = window.innerWidth
     const logo = document.querySelector('.header__logo')
     const titleHomeScreen = document.querySelector('.home__title')
     titleHomeScreenLeftBorder = titleHomeScreen.getBoundingClientRect().left
-    document.documentElement.clientWidth > 1200 ? 
-        logo.style.left = `${titleHomeScreenLeftBorder - 25}px` : 
+    document.documentElement.clientWidth > 1200 ?
+        logo.style.left = `${titleHomeScreenLeftBorder - 25}px` :
         logo.style.left = `${titleHomeScreenLeftBorder}px`
 }
 window.addEventListener('resize', logoAlign)
@@ -80,36 +88,76 @@ document.addEventListener('DOMContentLoaded', function () {
     // });
 
 });
-// ================================================== 
-// document.addEventListener('DOMContentLoaded', function(){
-//     const floors = document.querySelectorAll('.floors__item')
-//     floors.forEach(item => {
-//         item.addEventListener('click', function(){
-//             floors.forEach(elem => {
-//                 elem.classList.remove('active')
-//             })
-//             this.classList.add('active')
-//         })
-//     })
-// })
-// ================================================== 
-// ================================================== 
-// ================================================== 
-// ================================================== 
-// ================================================== 
-// ================================================== 
-// ================================================== 
-// ================================================== 
+// ================================================== animation
+window.addEventListener('load', function () {
+    // home section
+    const titleWords = document.querySelectorAll('.home__title span')
+    let time = 1500
+    titleWords.forEach(item => {
+        this.setTimeout(function () {
+            item.style.cssText = `
+                opacity: 1;
+                top: 0
+            `
+        }, time)
+        time += 100
+    })
+    setTimeout(function () {
+        home.style.opacity = 1
+    }, 1000)
+    setTimeout(function () {
+        header.style.top = 0
+    }, 1500)
+})
+
+window.addEventListener('load', () => {
+    function animation(section, classNameAnimation) {
+        let prevRatio = 0.0;
+        let observer = new IntersectionObserver((entries, observer) => {
+            const animateElems = section.querySelectorAll('.animate__animated')
+            const animateElem = section.querySelector('.animate__animated')
+            time = 0
+            entries.forEach(entry => {
+                let curRatio = entry.intersectionRatio;
+                if (curRatio > prevRatio) {
+                    animateElems.forEach(item => {
+                        this.setTimeout(function () {
+                            item.classList.add(classNameAnimation)
+                            item.style.opacity = 1
+                        }, time)
+                        time += 200
+                    })
+                } else {
+                    animateElems.forEach(item => {
+                        this.setTimeout(function () {
+                            item.classList.remove(classNameAnimation)
+                            item.style.opacity = 0
+                        }, time)
+                        time = 0
+                    })
+                }
+                prevRatio = curRatio;
+            })
+        }, { threshold: 0.2 });
+        observer.observe(section);
+    }
+    animation(advantages, 'animate__fadeInLeft');
+    animation(awards, 'animate__fadeInDown');
+    animation(dignity, 'animate__flipInY')
+    animation(vacancy, 'animate__zoomIn')
+    animation(floors, 'animate__fadeInDown')
+    animation(contacts, 'animate__fadeInLeft')
+});
 
 // ================================================== map (отложенная загрузка)
-setTimeout(function() {
-    var headID = document.getElementsByTagName("body")[0];         
+setTimeout(function () {
+    var headID = document.getElementsByTagName("body")[0];
     var newScript = document.createElement('script');
     newScript.type = 'text/javascript';
     newScript.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
     headID.appendChild(newScript);
 }, 3000);
-setTimeout(function() {
+setTimeout(function () {
     var myMap = new ymaps.Map('map', {
         center: [55.907879, 37.415901],
         zoom: 16

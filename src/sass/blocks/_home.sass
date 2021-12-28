@@ -3,6 +3,8 @@
 	height: 67.6875rem
 	margin: 0 0 1.1rem 0
 	background: url('../img/Main-screen.jpg') center top / cover no-repeat
+	opacity: 0
+	transition: opacity 1s
 	&__box
 		position: relative
 		z-index: 2
@@ -11,6 +13,11 @@
 		margin: 0 0 3rem 0
 		font-family: $light
 		font-size: 4.875rem
+		span
+			position: relative
+			top: -2rem
+			opacity: 0
+			transition: all 0.3s
 	&__tagtitle
 		display: block
 		margin: 0 0 4.4rem 0
