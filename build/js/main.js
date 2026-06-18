@@ -28,29 +28,29 @@ window.addEventListener('resize', logoAlign)
 window.addEventListener('load', logoAlign)
 
 // ================================================== inputmask
-$(document).ready(function () {
-    $(":input").inputmask();
-    $(".phone").inputmask({
-        mask: "+7 999 999 99 99",
-        clearIncomplete: true
-    });
-    $('.email').inputmask({
-        mask: "*{1,20}[.*{1,20}]@*{1,20}.*{2,4}",
-        greedy: false,
-        clearIncomplete: true,
-        onBeforePaste: function (pastedValue, opts) {
-            pastedValue = pastedValue.toLowerCase();
-            return pastedValue.replace("mailto:", "");
-        },
-        definitions: {
-            '*': {
-                validator: "[0-9A-Za-z-а-я-]",
-                casing: "lower"
-            }
-        }
-    }
-    );
-});
+// $(document).ready(function () {
+//     $(":input").inputmask();
+//     $(".phone").inputmask({
+//         mask: "+7 999 999 99 99",
+//         clearIncomplete: true
+//     });
+//     $('.email').inputmask({
+//         mask: "*{1,20}[.*{1,20}]@*{1,20}.*{2,4}",
+//         greedy: false,
+//         clearIncomplete: true,
+//         onBeforePaste: function (pastedValue, opts) {
+//             pastedValue = pastedValue.toLowerCase();
+//             return pastedValue.replace("mailto:", "");
+//         },
+//         definitions: {
+//             '*': {
+//                 validator: "[0-9A-Za-z-а-я-]",
+//                 casing: "lower"
+//             }
+//         }
+//     }
+//     );
+// });
 
 // ================================================== slick slider
 document.addEventListener('DOMContentLoaded', function () {
